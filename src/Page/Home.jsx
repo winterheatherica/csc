@@ -5,7 +5,7 @@ import Button from '../Components/Button';
 
 export default function Home() {
   return (
-    <div className="flex justify-center bg-purple-300" style={{ backgroundImage: `url(${DSS})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'rgba(0, 0, 0, 1)' }}>
+    <div className="flex justify-center bg-yellow-300" style={{ backgroundImage: `url(${DSS})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'rgba(0, 0, 0, 1)' }}>
       <div className="Genshin-Impact h-screen flex flex-col justify-center items-center">
         <h2 className="md:text-6xl sm:text-4xl text-center text-white mt-4 pb-8" style={{ textShadow: '1px 1px 0 #7E22CE' }}>
         Welcome to <br />
