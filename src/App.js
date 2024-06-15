@@ -8,7 +8,9 @@ import Home from './Page/Home';
 
 import WP from './Page/Contents/WP';
 import AHP from './Page/Contents/AHP';
-import TOPSIS from './Page/Contents/TOPSIS';
+import COPRAS from './Page/Contents/COPRAS';
+import PM from './Page/Contents/PM';
+import History from './Page/Contents/History';
 
 function App() {
   return (
@@ -21,7 +23,9 @@ function App() {
             <Route path="/Contact" element={ <Contact />} />
             <Route path="/WP" element={ <WP />} />
             <Route path="/AHP" element={ <AHP />} />
-            <Route path="/TOPSIS" element={ <TOPSIS />} />
+            <Route path="/COPRAS" element={ <COPRAS />} />
+            <Route path="/PM" element={ <PM />} />
+            <Route path="/History" element={ <History />} />
           </Routes>
         </div>
       <Footer />

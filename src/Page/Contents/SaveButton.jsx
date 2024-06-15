@@ -1,17 +1,17 @@
 import React from 'react';
 
-const SaveButton = ({ maxLabel }) => {
+const SaveButton = ({ maxLabel, methodLabel }) => {
 
     const handleSave = async (event) => {
         event.preventDefault();
-        const currentDate = new Date().toLocaleString();
+        const currentDate = new Date();
         const data = {
             date: currentDate,
-            method: 'WP',
+            method: methodLabel,
             alternatif: maxLabel,
         };
 
-        const response = await fetch('/api/save/route', {
+        const response = await fetch('/api/save', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

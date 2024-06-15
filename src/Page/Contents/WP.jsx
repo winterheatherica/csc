@@ -20,7 +20,7 @@ const WP = () => {
       setNum(parsedValue);
       setArr1(Array(parsedValue).fill(0));
       setArr2(Array(parsedValue).fill('b'));
-      setWeightLabels(Array(parsedValue).fill(0).map((_, index) => `Weight ${index + 1}`));
+      setWeightLabels(Array(parsedValue).fill(0).map((_, index) => `Criteria ${index + 1}`));
     }
   };
 
@@ -92,7 +92,7 @@ const WP = () => {
   }, [arrAkhir, alternativeLabels]);
 
   return (
-    <div className="p-4 bg-yellow-600">
+    <div className="p-4 bg-yellow-600 relative">
       <h1 className="text-2xl mb-4 Genshin-Impact text-yellow-100">Weighted Products (WP)</h1>
       <div className="mb-4 rounded-lg bg-yellow-700 p-4">
         <label className="block mb-2 Poppins-light text-yellow-200">Masukkan Jumlah Kriteria:</label>
@@ -101,7 +101,7 @@ const WP = () => {
           value={num}
           onChange={handleNumChange}
           min="0"
-          className="border p-2 w-full Genshin-Impact"
+          className="border p-2 w-full Genshin-Impact bg-yellow-200"
         />
       </div>
       {weightLabels.map((label, index) => (
@@ -111,7 +111,7 @@ const WP = () => {
               type="text"
               value={label}
               onChange={(e) => handleWeightLabelChange(index, e.target.value)}
-              className="border p-2 w-full"
+              className="border p-2 w-full bg-yellow-200"
             />
           </div>
           <div className="flex items-center mb-2 Genshin-Impact">
@@ -119,19 +119,19 @@ const WP = () => {
               type="number"
               value={arr1[index]}
               onChange={(e) => handleArr1Change(index, e.target.value)}
-              className="border p-2 w-full"
+              className="border p-2 w-full bg-yellow-100"
             />
           </div>
           <div className="flex items-center gap-2 mb-2">
-            <label className="flex items-center Genshin-Impact">
+            <label className="flex items-center Genshin-Impact ">
               <input
                 type="radio"
                 name={`radio-${index}`}
                 value="b"
                 checked={arr2[index] === 'b'}
                 onChange={(e) => handleArr2Change(index, e.target.value)}
-                className="mr-2"
-              /> B
+                className="mr-2 "
+              /> Benefit
             </label>
             <label className="flex items-center Genshin-Impact">
               <input
@@ -141,7 +141,7 @@ const WP = () => {
                 checked={arr2[index] === 'c'}
                 onChange={(e) => handleArr2Change(index, e.target.value)}
                 className="mr-2"
-              /> C
+              /> Cost
             </label>
           </div>
         </div>
@@ -153,27 +153,27 @@ const WP = () => {
           value={num2}
           onChange={handleNum2Change}
           min="0"
-          className="border p-2 w-full Genshin-Impact"
+          className="border p-2 w-full Genshin-Impact bg-yellow-100"
         />
       </div>
       {alternativeLabels.map((label, i) => (
         <div key={i} className="mb-4 bg-yellow-300 rounded-lg p-4">
-          <div className="flex items-center mb-2 Genshin-Impact">
+          <div className="flex items-center mb-2 Genshin-Impact  ">
             <input
               type="text"
               value={label}
               onChange={(e) => handleAlternativeLabelChange(i, e.target.value)}
-              className="border p-2 w-full"
+              className="border p-2 w-full bg-yellow-200"
             />
           </div>
-          <div className="flex flex-col Genshin-Impact">
+          <div className="flex flex-col Genshin-Impact ">
             {arr3[i] && arr3[i].map((value, j) => (
               <input
                 key={j}
                 type="number"
                 value={value}
                 onChange={(e) => handleArr3Change(i, j, e.target.value)}
-                className="border p-2 mb-2 w-full"
+                className="border p-2 mb-2 w-full bg-yellow-100"
               />
             ))}
           </div>
@@ -186,22 +186,22 @@ const WP = () => {
         Hitung
       </button>
       <div>
-  {arrAkhir.map((value, index) => (
-    <input
-      key={index}
-      type="text"
-      value={value}
-      readOnly
-      className="border p-2 mb-2 w-full Genshin-Impact"
-    />
-  ))}
-</div>
-{maxValue !== null && (
-  <div className="mt-4 mb-4 Poppins-light text-yellow-100">
-    <strong>Value terbesar dimiliki oleh: {maxLabel} dengan nilai {maxValue}</strong>
-  </div>
-)}
-      <SaveButton maxLabel={maxLabel} />
+        {arrAkhir.map((value, index) => (
+          <input
+            key={index}
+            type="text"
+            value={value}
+            readOnly
+            className="border p-2 mb-2 w-full Genshin-Impact"
+          />
+        ))}
+        </div>
+            {maxValue !== null && (
+          <div className="mt-4 mb-4 Poppins-light text-yellow-100">
+                <strong>Value terbesar dimiliki oleh: {maxLabel} dengan nilai {maxValue}</strong>
+          </div>
+        )}
+      <SaveButton maxLabel={maxLabel} methodLabel={'WP'}  />
     </div>
   );
   

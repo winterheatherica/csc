@@ -1,11 +1,11 @@
 import prisma from "@/libs/prisma";
 
 export async function POST(request) {
-    const { alternatif: maxLabel } = await request.json();
-    const currentDate = new Date().toLocaleString();
+    const { method: methodLabel, alternatif: maxLabel } = await request.json();
+    const currentDate = new Date();
     const data = {
         date: currentDate,
-        method: "WP",
+        method: methodLabel,
         alternatif: maxLabel,
     };
 
